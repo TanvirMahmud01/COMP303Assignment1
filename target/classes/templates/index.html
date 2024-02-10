@@ -20,10 +20,10 @@
             </div>
             <div class="col">
 
-                <input type="text" class="form-control mb-2 mr-sm-2" id="firstName" placeholder="Enter First Name" name="firstName">
+                <input type="text" class="form-control mb-2 mr-sm-2" id="firstName" placeholder="Enter First Name" name="firstName" required>
             </div>
             <div class="col">
-                <input type="text" class="form-control mb-2 mr-sm-2" id="lastName" placeholder="Enter Last Name" name="lastName">
+                <input type="text" class="form-control mb-2 mr-sm-2" id="lastName" placeholder="Enter Last Name" name="lastName" required>
             </div>
         </div>
         <div class="row">
@@ -31,10 +31,10 @@
                 <label for="contactNumber" class="mb-2 mr-sm-2">Contact Number:</label>
             </div>
             <div class="col">
-                <input type="tel" class="form-control mb-2 mr-sm-2" id="areaCode" placeholder="Area Code" name="areaCode">
+                <input type="tel" class="form-control mb-2 mr-sm-2" id="areaCode" placeholder="Area Code" name="areaCode" required>
             </div>
             <div class="col">
-                <input type="tel" class="form-control mb-2 mr-sm-2" id="contactNumber" placeholder="Phone Number" name="contactNumber">
+                <input type="tel" class="form-control mb-2 mr-sm-2" id="contactNumber" placeholder="Phone Number" name="contactNumber" required>
             </div>
         </div>
 
@@ -80,7 +80,7 @@
                 <label for="email" class="mb-2 mr-sm-2">Email:</label>
             </div>
             <div class="col">
-                <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
             </div>
         </div>
         <div class="row">
@@ -88,7 +88,7 @@
                 <label for="rooms" class="mb-2 mr-sm-2">Number of Stateroom: </label>
             </div>
             <div class="col">
-                <input type="number" name="rooms" id="rooms" class="form-control mb-2 mr-sm-2">
+                <input type="number" name="rooms" id="rooms" class="form-control mb-2 mr-sm-2" min="1" required>
             </div>
 
         </div>
@@ -118,7 +118,7 @@
                 <label for="numberOfGuests" class="mb-2 mr-sm-2">Number of Guests: </label>
             </div>
             <div class="col">
-                <input type="number" name="numberOfGuests" id="numberOfGuests" value="0">
+                <input type="number" name="numberOfGuests" id="numberOfGuests" value="1" required>
             </div>
         </div>
 
@@ -149,7 +149,7 @@
 
                 </div>
                 <div class="form-check">
-                        <input type="radio" class="form-check-input" name="isSenior" value="false">No
+                        <input type="radio" class="form-check-input" name="isSenior" value="false" required>No
                 </div>
             </div>
         </div>
