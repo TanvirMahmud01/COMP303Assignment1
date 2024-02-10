@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Show Cruise Details</title>
+    <style>
+        /* Add your styles for a user-friendly design */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 20px;
+        }
+
+        .container {
+            width: 50%;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        /* Add more styles as needed */
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Booking Details</h2>
+    <div th:if="${bookingDetails != null}">
+        <p th:utext="'Welcome ' + ${bookingDetails.firstName}"></p>
+        <p>Your booking details are as follows:</p>
+        <p>Email Address: <span th:text="${bookingDetails.email}"></span></p>
+        <p>Phone Number: <span th:text="${bookingDetails.areaCode} + '-' + ${bookingDetails.contactNumber}"></span></p>
+        <p>Cruise Type: <span th:text="${bookingDetails.roomType}"></span></p>
+        <p>No of Guests: <span th:utext="${bookingDetails.getNumberOfGuests()}"></span></p>
+        <p>Price per room: <span th:text="${bookingDetails.price}"></span></p>
+    </div>
+</div>
+
+<div class="container">
+    <h2>Cost of Trip</h2>
+    <b th:text="${bookingDetails.getRoomType()}"></b>
+    <p>Cost of ticket(s): <span th:text="${bookingDetails.price} + ' X ' + ${bookingDetails.numberOfGuests}"></span></p>
+    <p>Discount: <span th:text="${bookingDetails.discount()}"></span></p>
+
+    <p>Taxes and Fees: <span th:text="${bookingDetails.taxes()}"></span></p>
+    <p>Cruise Trip Total:  <span th:text="${bookingDetails.grandTotal()}"></span></p>
+</div>
+</body>
+</html>

@@ -12,7 +12,7 @@
 <body>
 <div class="container">
     <h2>Cruise Booking Request</h2>
-    <form method="post">
+    <form action="#" method="post" th:action="@{/pages/show-cruise}" th:object="${cruise}">
 
         <div class="row">
             <div class="col">
@@ -31,10 +31,10 @@
                 <label for="contactNumber" class="mb-2 mr-sm-2">Contact Number:</label>
             </div>
             <div class="col">
-                <input type="text" class="form-control mb-2 mr-sm-2" id="areaCode" placeholder="Area Code" name="areaCode">
+                <input type="tel" class="form-control mb-2 mr-sm-2" id="areaCode" placeholder="Area Code" name="areaCode">
             </div>
             <div class="col">
-                <input type="text" class="form-control mb-2 mr-sm-2" id="contactNumber" placeholder="Phone Number" name="contactNumber">
+                <input type="tel" class="form-control mb-2 mr-sm-2" id="contactNumber" placeholder="Phone Number" name="contactNumber">
             </div>
         </div>
 
@@ -88,11 +88,15 @@
                 <label for="rooms" class="mb-2 mr-sm-2">Number of Stateroom: </label>
             </div>
             <div class="col">
-                <input type="number" name="rooms" id="rooms">
+                <input type="number" name="rooms" id="rooms" class="form-control mb-2 mr-sm-2">
             </div>
-            <div class="col">
+
+        </div>
+
+        <div class="row">
+            <div class="col mb-2 mr-sm-2">
                 Type of Stateroom: :
-                <select name="roomType" id="roomType">
+                <select name="roomType" id="roomType" class="" onchange="updatePrice()">
                     <option value="Ocean view">Ocean view</option>
                     <option value="Aqua class">Aqua class</option>
                     <option value="Veranda">Veranda</option>
@@ -100,21 +104,21 @@
                     <option value="Royal Suite">Royal Suite</option>
                 </select>
             </div>
+
+            <div class="col">
+                <label for="price" class="">Price: </label>
+            </div>
+            <div class="col">
+                <input type="text" class="form-control mb-2 mr-sm-2" id="price" name="price" value="1000" readonly>
+            </div>
         </div>
 
         <div class="row">
             <div class="col">
-                <label for="price" class="mb-2 mr-sm-2">Price: </label>
+                <label for="numberOfGuests" class="mb-2 mr-sm-2">Number of Guests: </label>
             </div>
             <div class="col">
-                <input type="text" class="form-control mb-2 mr-sm-2" id="price" name="price">
-            </div>
-
-            <div class="col">
-                <label for="guests" class="mb-2 mr-sm-2">Number of Guests: </label>
-            </div>
-            <div class="col">
-                <input type="number" name="guests" id="guests">
+                <input type="number" name="numberOfGuests" id="numberOfGuests" value="0">
             </div>
         </div>
 
@@ -125,12 +129,12 @@
             <div class="col">
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="insideCabin" value="Inside cabin">Inside Cabin
+                        <input type="radio" class="form-check-input" name="cabinType" value="Inside cabin">Inside Cabin
                     </label>
                 </div>
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="outsideCabin" value="Outside Cabin">Outside Cabin
+                        <input type="radio" class="form-check-input" name="cabinType" value="Outside Cabin">Outside Cabin
                     </label>
                 </div>
             </div>
@@ -140,22 +144,45 @@
             </div>
             <div class="col">
                 <div class="form-check">
-                    <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="senior" value="Yes">Yes
-                    </label>
+
+                        <input type="radio" class="form-check-input" name="isSenior" value=true>Yes
+
                 </div>
                 <div class="form-check">
-                    <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="senior" value="No">No
-                    </label>
+                        <input type="radio" class="form-check-input" name="isSenior" value="false">No
                 </div>
             </div>
         </div>
         <button type="submit" class="btn btn-primary">Book Now</button>
     </form>
 </div>
-<p>---------</p>
 
+<script>
+    function updatePrice(){
+        var roomType = document.getElementById("roomType").value;
+        var priceField = document.getElementById("price");
+
+        switch (roomType) {
+            case "Ocean view":
+                priceField.value = "1000";
+                break;
+            case "Aqua class":
+                priceField.value = "1500";
+                break;
+            case "Veranda":
+                priceField.value = "2000";
+                break;
+            case "Sky Suite":
+                priceField.value = "2500";
+                break;
+            case "Royal Suite":
+                priceField.value = "3000";
+                break;
+            default:
+                priceField.value = "";
+        }
+    }
+</script>
 
 </body>
 </html>
