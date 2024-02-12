@@ -19,15 +19,5 @@ public class CruiseController {
     public String bookCruise(@ModelAttribute("cruise") Cruise cruise, Model model) {
         model.addAttribute("bookingDetails", cruise);
         return "pages/show-cruise";}
-//    public String bookCruise(@ModelAttribute("cruise") Cruise cruise, Model model) {
-//        // Process the cruise data and set the result in the model
-//        model.addAttribute("bookingDetails", "Your Booking details are as follows:<br/>" +
-//                "• Email Address: " + cruise.getEmail() + "<br/>" +
-//                "• Phone Number: " + cruise.getContactNumber() + "<br/>" +
-//                "• Cruise Type: " + cruise.getRoomType() + "<br/>" +
-//                "• No of Guests: " + cruise.getNumberOfGuests() + "<br/>" +
-//                "• Guests: " + cruise.getNumberOfGuests() );
-//
-//        return "pages/show-cruise";
-//    }
+
 }

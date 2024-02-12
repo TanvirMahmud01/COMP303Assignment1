@@ -1,0 +1,54 @@
+.container .main-page{
+    margin: 50px auto;
+}
+.main-page h2 {
+    color: goldenrod;
+    margin-bottom: 20px;
+    border-bottom: 3px solid gainsboro;
+    padding-bottom: 20px;
+}
+
+.container.main-page {
+    background: floralwhite;
+    padding: 20px;
+}
+
+button.btn.btn-primary {
+    background: goldenrod;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 20px;
+}
+.detail-container {
+    display: flex;
+    flex-flow: row;
+}
+
+.booking-details h2 {
+    color: brown;
+    margin: 20px 0;
+}
+
+.container.booking-details {
+    background: #d2691e33;
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.container.details {
+    background: #d3a56b59;
+    color: #843d0b;
+    text-align: left;
+    margin-right: 20px;
+    border-radius: 4px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
